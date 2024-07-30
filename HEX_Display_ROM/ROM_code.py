@@ -72,12 +72,22 @@ def hundreds ():
 #string = [0:"01",1: "4f",2: "12",3: "06",4: "4c",5: "24",6: "20",7: "0f",8: "00",9: "04"]
 
 
-
+# good ----------------------------------
 def sign_ones():
     with open("sign_ones.txt","w") as file:
         string = {0:"01",1:"4f",2:"12",3:"06",4:"4c",5:"24",6:"20",7:"0f",8:"00",9:"04"}
         counter = 0
-        for i in range(-128,128):
+        counter_neg = 0
+        for i in range(0,-128,-1):
+            if counter_neg == 8:
+                file.write("\n")
+                counter_neg = 0
+
+            num = abs(i) % 10
+            file.write(string[num] + " ")
+            counter_neg += 1
+        file.write('\n')
+        for i in range(128,0,-1):
             if counter == 8:
                 file.write("\n")
                 counter = 0
@@ -85,9 +95,75 @@ def sign_ones():
             num = abs(i) % 10
             file.write(string[num] + " ")
             counter += 1
-            
-            
+        
+        
 #sign_ones()
+
+def sing_ten():
+    with open("sign_ten.txt","w") as file:
+        string = {0:"01",1:"4f",2:"12",3:"06",4:"4c",5:"24",6:"20",7:"0f",8:"00",9:"04"}
+        counter = 0
+        counter_neg = 0
+        for i in range(0,-128,-1):
+            if counter_neg == 8:
+                file.write("\n")
+                counter_neg = 0
+
+            num = (abs(i)//10) % 10
+            file.write(string[num] + " ")
+            counter_neg += 1
+        file.write('\n')
+        for i in range(128,0,-1):
+            if counter == 8:
+                file.write("\n")
+                counter = 0
+
+            num = (abs(i)//10) % 10
+            file.write(string[num] + " ")
+            counter += 1
+#sing_ten()
+
+def sign_hunds():
+    with open("sign_hunds.txt","w") as file:
+        string = {0:"01",1:"4f",2:"12",3:"06",4:"4c",5:"24",6:"20",7:"0f",8:"00",9:"04"}
+        counter = 0
+        counter_neg = 0
+        for i in range(0,-128,-1):
+            if counter_neg == 8:
+                file.write("\n")
+                counter_neg = 0
+
+            num = abs(i) // 100
+            file.write(string[num] + " ")
+            counter_neg += 1
+        file.write('\n')
+        for i in range(128,0,-1):
+            if counte == 8:
+                file.write("\n")
+                counter = 0
+
+            num = abs(i) // 100 
+            file.write(string[num] + " ")
+            counter += 1
+
+#sign_hunds()
+
+def sign_sign():
+    with open("sign_sign.txt", "w") as file:
+        counter = 0
+        for i in range(-128,128):
+            if counter == 8:
+                file.write("\n")
+                counter = 0
+            if i < 0:
+                file.write("7f ")
+                counter += 1
+            else:
+                file.write("7e ")
+                counter += 1
+sign_sign()
+
+# good --------------------------------------
 
 #string = [0:"01",1:"4f",2:"12",3:"06",4:"4c",5:"24",6:"20",7:"0f",8:"00",9:"04"]
 
@@ -148,7 +224,7 @@ def not_sign():
                 counter = 0
             file.write("7f ")
             counter +=1
-not_sign()
+#not_sign()
 
 def sign():
     with open("signs.txt", "w") as file:
@@ -163,7 +239,7 @@ def sign():
             else:
                 file.write("7f ")
                 counter += 1
-sign()
+#sign()
                 
 
 
