@@ -86,6 +86,5 @@ int main() {
     }
     
     fclose(pf);
-
     return 0;
 }
