@@ -8,7 +8,7 @@ This is a simulation of an 8-bit CPU using [logisim evolution](https://github.co
 ## Display ROM
 - This CPU uses 4 seperate ROM's (ones place, tens place, hundreds place and, sign) to convert the output of an execution from binary to HEX 
 ## Microcode
-- The microcode in this CPU uses a 22-bit ROM to decode each instructuion in the instruction set. Each of the 22 bits represents a control signal for various componets in the CPU. 
+- The microcode in this CPU uses a 22-bit ROM to decode each instructuion in the instruction set. Each of the 23 bits represents a control signal for various componets in the CPU. 
 - The microcode ROM uses 8 bit addresses to decode each instruction. From righ to left, the most significant bit(bit 7) in the address represents the status of the carry flag. Bits 3-6 represent the instruction that is being executed while bits 0-2 represent the current step of the instruction
 
 An example for the LDA instruction:

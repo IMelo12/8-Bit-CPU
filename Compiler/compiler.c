@@ -26,25 +26,25 @@ int main(){
     FILE *pf = fopen("fibonacci.txt","w");
     FILE *pf_inc = fopen("Increment.txt","w");
     
-    int code_fib[] = {
-        (LDA << 4)|0b1111, 
-        (ADD << 4)|0b1110, 
-        (STA << 4)|0b1101, 
-        (OUT << 4), 
-        (LDA << 4)|0b1101, 
-        (ADD << 4)|0b1100, 
-        (STA << 4)|0b1011, 
-        (OUT << 4),
-        HLT, 
-        0, 
-        0, 
-        0, 
-        0b0001, 
-        0, 
-        0b0001, 
-        0b0001};
-
     int code_inc[] = {
+        (LDA << 4)|0b1111, 
+        (INC << 4), 
+        (OUT << 4), 
+        (STA << 4)|0b1111, 
+        (JMP << 4)|0b0000, 
+        0, 
+        0, 
+        0,
+        0, 
+        0, 
+        0, 
+        0, 
+        0, 
+        0, 
+        0, 
+        0};
+
+    int code_fib[] = {
         (LDA << 4)|0b1111, 
         (ADD << 4)|0b1110,
         (JMC << 4)|0b1010, 
@@ -55,7 +55,12 @@ int main(){
         (LDA << 4)|0b1101,
         (STA << 4)|0b1110,
         (JMP << 4)|0b0000,
-        (HLT << 4)
+        (HLT << 4),
+        0,
+        0,
+        0,
+        0,
+        0b0001
     };
     int size = sizeof(code_fib)/sizeof(code_fib[0]);
     int size_inc = sizeof(code_inc)/sizeof(code_inc[0]);
