@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-#define ALUI 0b10000000000000000000000
+#define ALUI 0b10000000000000000000000  // ALU register in
 #define FRI  0b01000000000000000000000  // Flags register in
 #define HLT  0b00100000000000000000000  // Halt clock
 #define MI   0b00010000000000000000000  // Memory address register in
@@ -89,3 +89,4 @@ int main() {
     fclose(pf);
     return 0;
 }
+
