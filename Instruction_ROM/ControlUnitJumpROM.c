@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
+//control signals
 #define ALUI 0b10000000000000000000000  // ALU register in
 #define FRI  0b01000000000000000000000  // Flags register in
 #define HLT  0b00100000000000000000000  // Halt clock
@@ -25,8 +26,8 @@
 #define S1   0b00000000000000000000010  // ALU select bit S1
 #define S2   0b00000000000000000000001  // ALU select bit S2
 
-#define CF0  0
-#define CF1  1
+#define CF0  0 // carry flag not set
+#define CF1  1 // carry flag set
 
 #define JMC 0b1111
 
@@ -78,7 +79,7 @@ int main() {
                 if(counter == 8){
                     fprintf(pf,"\n");
                     counter = 0;} 
-                char binarystring[22];
+                char binarystring[7];
                 hex(binarystring,program[i][j][k]);
                 fprintf(pf, "%s%s", binarystring," ");  
                 counter ++;

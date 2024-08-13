@@ -1,6 +1,5 @@
 /*
     pseudo compiler to generate RAM instruction for several programs
-
 */
 
 
@@ -28,11 +27,12 @@ int main(){
     
     int code_inc[] = {
         (LDA << 4)|0b1111, 
-        (INC << 4), 
+        (INC << 4),
+        (JMC << 4)|0b0110, 
         (OUT << 4), 
         (STA << 4)|0b1111, 
         (JMP << 4)|0b0000, 
-        0, 
+        (HLT << 4), 
         0, 
         0,
         0, 
@@ -40,8 +40,7 @@ int main(){
         0, 
         0, 
         0, 
-        0, 
-        0, 
+        0,  
         0};
 
     int code_fib[] = {
@@ -50,10 +49,10 @@ int main(){
         (JMC << 4)|0b1010, 
         (OUT << 4), 
         (STA << 4)|0b1101,
-        (LDA << 4)|0b1110,
-        (STA << 4)|0b1111,
-        (LDA << 4)|0b1101,
+        (LDA << 4)|0b1111,
         (STA << 4)|0b1110,
+        (LDA << 4)|0b1101,
+        (STA << 4)|0b1111,
         (JMP << 4)|0b0000,
         (HLT << 4),
         0,
@@ -62,16 +61,18 @@ int main(){
         0,
         0b0001
     };
+
     int size = sizeof(code_fib)/sizeof(code_fib[0]);
     int size_inc = sizeof(code_inc)/sizeof(code_inc[0]);
 
     char *program_inc = (char*)calloc(16,sizeof(size));
     char *program_fib = (char*)calloc(16,sizeof(size_inc));
-    for(int i = 0; i<size; i++){
 
+    for(int i = 0; i<size; i++){
         hex(program_fib, code_fib[i]);
         fprintf(pf,"%s ",program_fib);
     }
+
     for(int i = 0; i<size_inc; i++){
         hex(program_inc,code_inc[i]);
         fprintf(pf_inc,"%s ",program_inc);
@@ -83,5 +84,4 @@ int main(){
     free(program_inc);
     
     return 0;
-
 }

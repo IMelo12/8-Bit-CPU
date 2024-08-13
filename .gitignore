@@ -5,3 +5,5 @@ Instruction_ROM/ControlUnitJumpROM.exe
 Instruction_ROM/controlUnitROM.exe
 
 /.vscode
+
+test.c

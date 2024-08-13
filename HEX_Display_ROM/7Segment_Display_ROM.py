@@ -64,7 +64,6 @@ def tens_place_hex() -> None:
             num = (abs(i)//10) % 10
             file.write(string[num] + " ")
             counter_s += 1
-
 def hundreds_place_hex() -> None:
     with open("Hundreds_place_hex.txt", "w") as file:
         string = {0:"01",1:"4f",2:"12",3:"06",4:"4c",5:"24",6:"20",7:"0f",8:"00",9:"04"}
