@@ -7,3 +7,6 @@ Instruction_ROM/controlUnitROM.exe
 /.vscode
 
 test.c
+test.exe
+test.pdb
+test.rs
