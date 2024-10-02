@@ -1,5 +1,7 @@
 # 8 Bit CPU Simulation 
 This is a simulation of an 8-bit CPU using [logisim evolution](https://github.com/kevinawalsh/logisim-evolution).
+## Please watch this video
+(https://youtu.be/tj48Nz88_OU)
 ## Programs
 - This repo features a pseudo compiler that converts instructions into machine code for program execution 
 - This repo features two sample programs 
